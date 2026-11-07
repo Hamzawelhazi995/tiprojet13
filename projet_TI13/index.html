@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoTunisie · Accueil</title>
+  <meta name="description" content="EcoTunisie : l'association qui rend l'écologie concrète, motivante et mesurable. Découvrez des éco-gestes et mesurez votre empreinte carbone.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body data-racine="">
+
+  <header class="entete">
+    <a class="logo" href="index.html">EcoTunisie</a>
+    <nav aria-label="Navigation principale">
+      <ul id="menu" class="menu">
+        <li><a href="index.html" aria-current="page">Accueil</a></li>
+        <li><a href="pages/gestes.html">Éco-gestes</a></li>
+        <li><a href="pages/empreinte.html">Empreinte carbone</a></li>
+        <li><a href="pages/rejoindre.html">Rejoindre</a></li>
+        <li><button type="button" id="btn-theme" class="btn btn-theme">Changer de thème</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="bandeau" id="haut">
+      <div class="bandeau-contenu">
+        <h1>EcoTunisie : mon défi vert</h1>
+        <p>Adoptez des éco-gestes, suivez votre progression et mesurez votre empreinte carbone.</p>
+        <a class="btn" href="#association">Découvrir l'association</a>
+      </div>
+      <img src="images/hero.svg" alt="Feuille verte stylisée, symbole de l'écologie" class="bandeau-image">
+    </section>
+
+    <section id="association" class="contenu">
+      <h2>Qui sommes-nous ?</h2>
+      <p>EcoTunisie est une <strong>association citoyenne</strong> qui aide les jeunes à passer à l'action. Économiser l'eau, réduire les déchets, consommer moins d'énergie, mieux se déplacer : <em>les petits gestes du quotidien comptent</em>.</p>
+      <p>Notre site rend l'écologie <strong>concrète</strong>, <strong>motivante</strong> et <strong>mesurable</strong> : choisissez vos éco-gestes, relevez un défi chaque semaine et calculez votre empreinte carbone mensuelle.</p>
+
+      <h3>Les chiffres clés</h3>
+      <div class="chiffres">
+        <div class="chiffre"><span class="chiffre-valeur">4</span><span>domaines d'action : eau, énergie, déchets, transport</span></div>
+        <div class="chiffre"><span class="chiffre-valeur">8</span><span>éco-gestes à découvrir dans le catalogue</span></div>
+        <div class="chiffre"><span class="chiffre-valeur">6</span><span>gestes maximum dans votre défi de la semaine</span></div>
+      </div>
+    </section>
+
+    <section class="contenu" id="domaines">
+      <h2>Nos domaines d'action</h2>
+      <div class="grille-simple">
+        <article class="carte">
+          <img src="images/douche.svg" alt="Pomme de douche et gouttes d'eau">
+          <div class="carte-corps">
+            <h3>Eau</h3>
+            <p>Douches courtes, fuites réparées : chaque goutte économisée compte.</p>
+          </div>
+        </article>
+        <article class="carte">
+          <img src="images/ampoule.svg" alt="Ampoule électrique allumée">
+          <div class="carte-corps">
+            <h3>Énergie</h3>
+            <p>Ampoules LED, appareils éteints : moins de kWh, moins de CO₂.</p>
+          </div>
+        </article>
+        <article class="carte">
+          <img src="images/tri.svg" alt="Trois bacs de tri sélectif colorés">
+          <div class="carte-corps">
+            <h3>Déchets</h3>
+            <p>Trier, composter, réutiliser : donnez une seconde vie à vos déchets.</p>
+          </div>
+        </article>
+        <article class="carte">
+          <img src="images/velo.svg" alt="Vélo, un mode de transport sans émission">
+          <div class="carte-corps">
+            <h3>Transport</h3>
+            <p>Vélo, bus ou marche : bougez autrement pour polluer moins.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="contenu" id="habitudes">
+      <h2>5 habitudes à adopter</h2>
+      <ul class="liste-habitudes">
+        <li><strong>Fermer le robinet</strong> pendant le brossage des dents.</li>
+        <li><strong>Éteindre les appareils</strong> au lieu de les laisser en veille.</li>
+        <li><strong>Trier</strong> le papier, le plastique et le verre.</li>
+        <li>Préférer <em>la marche, le vélo ou le bus</em> pour les trajets courts.</li>
+        <li><strong>Emporter un sac réutilisable</strong> pour ses courses.</li>
+      </ul>
+    </section>
+
+    <section class="contenu" id="transports">
+      <h2>Émissions de CO₂ par mode de transport</h2>
+      <p>Valeurs indicatives, données à des fins pédagogiques uniquement.</p>
+      <img src="images/bus.svg" alt="Autobus, exemple de transport collectif" class="image-section">
+      <div class="tableau-conteneur">
+        <table>
+          <caption>Comparaison des modes de transport</caption>
+          <thead>
+            <tr>
+              <th colspan="4">Comparaison</th>
+            </tr>
+            <tr>
+              <th scope="col">Catégorie</th>
+              <th scope="col">Mode</th>
+              <th scope="col">Émissions (g par km)</th>
+              <th scope="col">Remarque</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" rowspan="2">Transports collectifs</th>
+              <td>Bus</td>
+              <td>70</td>
+              <td>Efficace quand il est bien rempli</td>
+            </tr>
+            <tr>
+              <td>Train</td>
+              <td>30</td>
+              <td>Un des modes motorisés les plus sobres</td>
+            </tr>
+            <tr>
+              <th scope="row">Transport individuel</th>
+              <td>Voiture</td>
+              <td>190</td>
+              <td>Émissions partagées si l'on covoiture</td>
+            </tr>
+            <tr>
+              <th scope="row">Mobilité douce</th>
+              <td>Vélo ou marche</td>
+              <td>0</td>
+              <td>Aucune émission directe, bon pour la santé</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <p>&copy; 2026 EcoTunisie · ISET Bizerte · Groupe TI13</p>
+    <p>Contact : <a href="mailto:contact@ecotunisie.tn">contact@ecotunisie.tn</a> · <a href="#haut">Retour en haut</a></p>
+    <p class="source">Sources des images : illustrations vectorielles (SVG) créées par l'équipe du projet, libres de droits.</p>
+  </footer>
+
+</body>
+</html>

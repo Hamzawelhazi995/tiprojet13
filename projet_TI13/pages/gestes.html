@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoTunisie · Catalogue des éco-gestes</title>
+  <meta name="description" content="Parcourez le catalogue des éco-gestes EcoTunisie, filtrez par domaine et composez votre défi de la semaine avec barre de progression.">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/script.js" defer></script>
+</head>
+<body data-racine="../">
+
+  <header class="entete">
+    <a class="logo" href="../index.html">EcoTunisie</a>
+    <nav aria-label="Navigation principale">
+      <ul id="menu" class="menu">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="gestes.html" aria-current="page">Éco-gestes</a></li>
+        <li><a href="empreinte.html">Empreinte carbone</a></li>
+        <li><a href="rejoindre.html">Rejoindre</a></li>
+        <li><button type="button" id="btn-theme" class="btn btn-theme">Changer de thème</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contenu">
+      <h1>Le catalogue des éco-gestes</h1>
+      <p>Cherchez un geste, filtrez par domaine, puis cliquez sur <strong>« Relever ce défi »</strong> pour l'ajouter à votre défi de la semaine.</p>
+    </section>
+
+    <div class="disposition-gestes contenu">
+
+      <section aria-labelledby="titre-catalogue">
+        <h2 id="titre-catalogue">Tous les éco-gestes</h2>
+
+        <div class="outils">
+          <label for="recherche">Rechercher un éco-geste</label>
+          <input type="search" id="recherche" placeholder="Ex. : douche, vélo, tri…" autocomplete="off">
+
+          <div id="filtres" class="filtres" role="group" aria-label="Filtrer par domaine">
+            <button type="button" class="btn-filtre actif" data-domaine="Tous" aria-pressed="true">Tous</button>
+            <button type="button" class="btn-filtre" data-domaine="Eau" aria-pressed="false">Eau</button>
+            <button type="button" class="btn-filtre" data-domaine="Énergie" aria-pressed="false">Énergie</button>
+            <button type="button" class="btn-filtre" data-domaine="Déchets" aria-pressed="false">Déchets</button>
+            <button type="button" class="btn-filtre" data-domaine="Transport" aria-pressed="false">Transport</button>
+          </div>
+          <p id="compteur" class="compteur" role="status" aria-live="polite"></p>
+        </div>
+
+        <p id="aucun-resultat" class="message erreur cachee">Aucun éco-geste trouvé</p>
+        <div id="catalogue" class="grille-cartes"></div>
+      </section>
+
+      <aside id="panneau-defi" class="panneau" aria-labelledby="titre-defi">
+        <h2 id="titre-defi">Mon défi de la semaine</h2>
+        <p>Choisissez jusqu'à 6 gestes, puis cochez ceux que vous avez réalisés.</p>
+
+        <p id="message-defi" class="message cachee" role="status" aria-live="polite"></p>
+
+        <p id="defi-vide" class="defi-vide">Votre défi est vide pour le moment.</p>
+        <ul id="liste-defi" class="liste-defi"></ul>
+
+        <div class="progression">
+          <div id="barre" class="barre" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progression du défi">
+            <div id="barre-remplie" class="barre-remplie"></div>
+          </div>
+          <p id="texte-progression">0 % réalisé</p>
+        </div>
+
+        <p>Économie de CO₂ réalisée : <strong id="total-co2">0.0</strong> kg / mois</p>
+        <p>Niveau : <strong id="niveau" class="niveau">Éco-débutant</strong></p>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="pied">
+    <p>&copy; 2026 EcoTunisie · ISET Bizerte · Groupe TI13</p>
+    <p>Contact : <a href="mailto:contact@ecotunisie.tn">contact@ecotunisie.tn</a></p>
+  </footer>
+
+</body>
+</html>

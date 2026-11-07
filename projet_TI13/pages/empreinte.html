@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoTunisie · Calculateur d'empreinte carbone</title>
+  <meta name="description" content="Estimez votre empreinte carbone mensuelle selon vos trajets en voiture, votre consommation d'électricité, votre alimentation et votre tri des déchets.">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/script.js" defer></script>
+</head>
+<body data-racine="../">
+
+  <header class="entete">
+    <a class="logo" href="../index.html">EcoTunisie</a>
+    <nav aria-label="Navigation principale">
+      <ul id="menu" class="menu">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="gestes.html">Éco-gestes</a></li>
+        <li><a href="empreinte.html" aria-current="page">Empreinte carbone</a></li>
+        <li><a href="rejoindre.html">Rejoindre</a></li>
+        <li><button type="button" id="btn-theme" class="btn btn-theme">Changer de thème</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contenu">
+      <h1>Calculez votre empreinte carbone</h1>
+      <p>Renseignez vos habitudes pour estimer vos émissions mensuelles de CO₂. Les coefficients utilisés sont <em>simplifiés et fictifs</em> : ils servent uniquement à sensibiliser.</p>
+    </section>
+
+    <section class="contenu calculateur" aria-labelledby="titre-calcul">
+      <img src="../images/veille.svg" alt="Bouton marche-arrêt symbolisant la consommation d'énergie" class="image-section">
+
+      <h2 id="titre-calcul">Mes habitudes</h2>
+      <form id="form-empreinte" novalidate>
+
+        <div class="champ">
+          <label for="km">Kilomètres en voiture par semaine (0 à 2000)</label>
+          <input type="number" id="km" name="km" min="0" max="2000" value="50">
+        </div>
+
+        <div class="champ">
+          <label for="kwh">Électricité par mois : <output id="kwh-valeur" for="kwh">200</output> kWh</label>
+          <input type="range" id="kwh" name="kwh" min="0" max="500" step="1" value="200">
+        </div>
+
+        <div class="champ">
+          <label for="alimentation">Alimentation</label>
+          <select id="alimentation" name="alimentation">
+            <option value="60">Végétarienne</option>
+            <option value="120" selected>Mixte</option>
+            <option value="200">Viande régulière</option>
+          </select>
+        </div>
+
+        <div class="champ champ-case">
+          <input type="checkbox" id="tri" name="tri">
+          <label for="tri">Je trie mes déchets (−15 kg de CO₂ par mois)</label>
+        </div>
+
+        <p id="erreur-empreinte" class="message erreur cachee" role="alert"></p>
+
+        <div class="boutons">
+          <button type="submit" class="btn">Calculer mon empreinte</button>
+        </div>
+      </form>
+
+      <div id="resultat" class="resultat cachee" role="status" aria-live="polite">
+        <h2>Votre résultat</h2>
+        <p class="resultat-valeur"><span id="resultat-valeur">0.0</span> kg CO₂ par mois</p>
+        <p id="resultat-categorie" class="resultat-categorie"></p>
+        <p id="resultat-conseil"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <p>&copy; 2026 EcoTunisie · ISET Bizerte · Groupe TI13</p>
+    <p>Contact : <a href="mailto:contact@ecotunisie.tn">contact@ecotunisie.tn</a></p>
+  </footer>
+
+</body>
+</html>

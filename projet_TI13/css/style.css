@@ -1,0 +1,524 @@
+/* ==========================================================
+   EcoTunisie · feuille de style unique (mobile first)
+   ========================================================== */
+
+/* ---------- Base et variables ---------- */
+* { box-sizing: border-box; }
+
+:root {
+  --vert: #1b7f43;
+  --vert-fonce: #0c4a28;
+  --vert-clair: #e3f6ea;
+  --accent: #f2a516;
+  --rouge: #b3261e;
+  --texte: #1c2b22;
+  --fond: #f6faf7;
+  --carte: #ffffff;
+  --bordure: #cfe3d6;
+  --lien: #145c31;
+  --blanc: #ffffff;
+}
+
+/* Thème sombre : on redéfinit seulement les variables */
+.sombre {
+  --texte: #e8f1ea;
+  --fond: #0f1a14;
+  --carte: #1a2a20;
+  --bordure: #34503f;
+  --lien: #86e3a8;
+  --vert-clair: #20382a;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--texte);
+  background-color: var(--fond);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.25;
+  color: var(--vert-fonce);
+}
+
+.sombre h1, .sombre h2, .sombre h3 { color: #a8e6b8; }
+
+h1 { font-size: 1.9rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.2rem; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--lien); }
+
+/* Pseudo-classes de focus : navigation clavier visible */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- En-tête et menu (Flexbox + sticky) ---------- */
+.entete {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
+  background-color: var(--vert-fonce);
+}
+
+.logo {
+  color: var(--blanc);
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.entete nav { flex-basis: 100%; }
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+}
+
+.menu li > a {
+  display: block;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  color: var(--blanc);
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+nav a:hover { background-color: var(--vert); }
+nav a[aria-current="page"] { background-color: var(--vert); font-weight: bold; }
+.menu li:first-child a { margin-left: 0; }
+
+/* ---------- Contenu général ---------- */
+.contenu {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+section > h2::before {
+  content: "\1F33F\00a0";
+}
+
+.disposition-gestes { display: grid; gap: 1.5rem; }
+
+/* ---------- Bandeau d'accueil (centré avec Flexbox) ---------- */
+.bandeau {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  min-height: 60vh;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--blanc);
+  background: linear-gradient(135deg, var(--vert), var(--vert-fonce));
+}
+
+.bandeau h1 { color: var(--blanc); margin: 0 0 0.5rem; }
+.sombre .bandeau h1 { color: var(--blanc); }
+.bandeau p { margin: 0 0 1rem; font-size: 1.1rem; }
+.bandeau-image { width: 220px; border-radius: 12px; }
+
+.bandeau-contenu { animation: apparition 0.8s ease-out; }
+
+@keyframes apparition {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Première lettre du premier paragraphe de présentation */
+#association p:first-of-type::first-letter {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--vert);
+}
+
+/* ---------- Chiffres clés ---------- */
+.chiffres { display: grid; gap: 1rem; }
+
+.chiffre {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  background-color: var(--vert-clair);
+}
+
+.chiffre-valeur {
+  font-family: Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--vert);
+  min-width: 3rem;
+  text-align: center;
+}
+
+.sombre .chiffre-valeur { color: #86e3a8; }
+
+/* ---------- Boutons ---------- */
+.btn,
+.btn-filtre {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  border: 2px solid var(--vert);
+  border-radius: 8px;
+  background-color: var(--vert);
+  color: var(--blanc);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn:hover, .btn-filtre:hover {
+  transform: scale(1.05);
+  background-color: var(--vert-fonce);
+  border-color: var(--vert-fonce);
+}
+
+.btn-secondaire {
+  background-color: transparent;
+  color: var(--lien);
+}
+
+.btn-secondaire:hover { color: var(--blanc); }
+
+.btn-theme {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #1c2b22;
+}
+
+.btn-theme:hover { background-color: #ffc23d; border-color: #ffc23d; }
+
+.btn-filtre {
+  background-color: transparent;
+  color: var(--lien);
+  padding: 0.4rem 0.9rem;
+}
+
+.btn-filtre.actif {
+  background-color: var(--vert);
+  color: var(--blanc);
+}
+
+/* ---------- Cartes (modèle de boîte) ---------- */
+.grille-cartes,
+.grille-simple {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.carte {
+  position: relative; /* parent du badge absolu */
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: 1px solid var(--bordure);
+  border-radius: 12px;
+  background-color: var(--carte);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.carte:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.carte img { width: 100%; height: 160px; object-fit: cover; }
+
+.carte-corps, .carte > h3, .carte > p, .carte > .btn {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.carte-corps { padding: 0.8rem 0 1rem; margin: 0 1rem; }
+.carte-corps h3 { margin: 0 0 0.3rem; }
+.carte-corps p { margin: 0; }
+
+.carte > h3 { margin-top: 0.8rem; margin-bottom: 0.3rem; }
+.carte > p { margin-top: 0.2rem; margin-bottom: 0.4rem; }
+.carte > .btn { margin-top: 0.4rem; margin-bottom: 1rem; }
+
+.economie { font-weight: bold; color: var(--lien); }
+
+/* Badges de difficulté (position absolue) */
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.badge-facile { background-color: #1b7f43; color: var(--blanc); }
+.badge-moyen  { background-color: var(--accent); color: #1c2b22; }
+.badge-engage { background-color: var(--rouge); color: var(--blanc); }
+
+/* ---------- Images de section ---------- */
+.image-section {
+  width: 100%;
+  max-width: 420px;
+  margin: 1rem auto;
+  border-radius: 12px;
+}
+
+/* ---------- Habitudes ---------- */
+.liste-habitudes { padding-left: 0; list-style: none; }
+
+.liste-habitudes > li {
+  margin-bottom: 0.6rem;
+  padding: 0.7rem 1rem;
+  border-left: 5px solid var(--vert);
+  border-radius: 6px;
+  background-color: var(--vert-clair);
+}
+
+.liste-habitudes > li::before { content: "\2714\00a0"; color: var(--vert); }
+
+/* ---------- Tableau ---------- */
+.tableau-conteneur { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--carte);
+}
+
+caption { padding: 0.5rem; font-weight: bold; text-align: left; }
+
+th, td {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--bordure);
+  text-align: left;
+}
+
+thead th { background-color: var(--vert); color: var(--blanc); }
+thead tr:first-child th { text-align: center; background-color: var(--vert-fonce); }
+tbody th { background-color: var(--vert-clair); }
+tbody tr:hover td { background-color: var(--vert-clair); }
+
+/* ---------- Outils du catalogue ---------- */
+.outils { margin-bottom: 1rem; }
+.outils label { display: block; font-weight: 600; margin-bottom: 0.3rem; }
+
+.filtres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
+}
+
+.compteur { font-weight: 600; }
+
+/* ---------- Panneau « Mon défi de la semaine » ---------- */
+.panneau {
+  align-self: start;
+  padding: 1rem;
+  border: 2px solid var(--vert);
+  border-radius: 12px;
+  background-color: var(--carte);
+}
+
+.panneau h2 { margin-top: 0; }
+
+.liste-defi { list-style: none; margin: 0 0 1rem; padding: 0; }
+
+.liste-defi > li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--bordure);
+}
+
+.liste-defi label { display: flex; align-items: center; gap: 0.3rem; font-size: 0.9rem; }
+.liste-defi .nom-geste { flex: 1; font-weight: 600; }
+
+.btn-retirer {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--rouge);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--rouge);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.sombre .btn-retirer { color: #ff9b94; border-color: #ff9b94; }
+.btn-retirer:hover { transform: scale(1.08); }
+
+.defi-vide { font-style: italic; }
+
+/* Barre de progression : le remplissage est animé par une transition */
+.barre {
+  width: 100%;
+  height: 22px;
+  overflow: hidden;
+  border-radius: 999px;
+  background-color: var(--bordure);
+}
+
+.barre-remplie {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--vert), #4cc77a);
+  transition: width 0.6s ease;
+}
+
+.niveau { color: var(--lien); }
+
+/* ---------- Formulaires ---------- */
+form {
+  max-width: 640px;
+  padding: 1rem;
+  border: 1px solid var(--bordure);
+  border-radius: 12px;
+  background-color: var(--carte);
+}
+
+.champ { display: flex; flex-direction: column; margin-bottom: 1rem; }
+.champ label { font-weight: 600; margin-bottom: 0.3rem; }
+
+.champ-case { flex-direction: row; align-items: center; gap: 0.5rem; }
+.champ-case label { margin: 0; font-weight: normal; }
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 2px solid var(--bordure);
+  border-radius: 8px;
+  background-color: var(--carte);
+  color: var(--texte);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+input[type="email"]:focus { border-color: var(--vert); }
+input[type="range"] { width: 100%; }
+
+.groupe-radio {
+  margin-bottom: 1rem;
+  border: 2px solid var(--bordure);
+  border-radius: 8px;
+}
+
+.groupe-radio legend { padding: 0 0.4rem; font-weight: 600; }
+.option-radio { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem; }
+
+.boutons { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+
+.erreur-champ {
+  min-height: 1.2rem;
+  margin-top: 0.2rem;
+  color: var(--rouge);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.sombre .erreur-champ { color: #ff9b94; }
+
+/* ---------- Classes d'état utilisées par JavaScript ---------- */
+.cachee { display: none; }
+
+.invalide { border: 2px solid var(--rouge); }
+
+.message {
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.succes { background-color: #d8f3e1; color: #0c4a28; border: 1px solid #1b7f43; }
+.erreur { background-color: #fde4e2; color: #8a1a14; border: 1px solid var(--rouge); }
+
+/* ---------- Résultat de l'empreinte ---------- */
+.resultat {
+  max-width: 640px;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 2px solid var(--bordure);
+  border-radius: 12px;
+  background-color: var(--carte);
+}
+
+.resultat-valeur { font-size: 1.6rem; font-weight: bold; margin: 0.3rem 0; }
+
+.resultat-categorie {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  font-weight: bold;
+}
+
+.categorie-faible  { background-color: #1b7f43; color: var(--blanc); }
+.categorie-moyenne { background-color: var(--accent); color: #1c2b22; }
+.categorie-elevee  { background-color: var(--rouge); color: var(--blanc); }
+
+/* ---------- Pied de page ---------- */
+.pied {
+  margin-top: 2rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background-color: var(--vert-fonce);
+  color: var(--blanc);
+}
+
+.pied p { margin: 0.3rem 0; }
+.pied a { color: #bff0cf; }
+.pied .source { font-size: 0.85rem; }
+
+/* ---------- Tablettes et ordinateurs (mobile first) ---------- */
+@media (min-width: 768px) {
+  h1 { font-size: 2.4rem; }
+  h2 { font-size: 1.8rem; }
+
+  .entete nav { flex-basis: auto; }
+  .menu { margin: 0; }
+
+  .bandeau { flex-direction: row; gap: 3rem; text-align: left; }
+  .bandeau-image { width: 280px; }
+
+  .chiffres { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 992px) {
+  .disposition-gestes { grid-template-columns: 2fr 1fr; }
+  .panneau { position: sticky; top: 90px; }
+}
